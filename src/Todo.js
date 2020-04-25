@@ -15,9 +15,9 @@ function Todo({ task, completed, removeTodo, id, toggleTodo, editTodo }) {
 
 
     return (
-        <ListItem>
+        <ListItem style={{ height: "64ox" }}>
             {isEdditing ? (
-                <EditTodoForm editTodo={editTodo} id={id} task={task} />
+                <EditTodoForm editTodo={editTodo} id={id} task={task} toggleEditForm={toggle} />
             ) : (
                     <>
                         <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTodo(id)} />
@@ -30,7 +30,7 @@ function Todo({ task, completed, removeTodo, id, toggleTodo, editTodo }) {
                             <IconButton aria-label="Delete" onClick={() => removeTodo(id)}>
                                 <DeleteIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton onClick={toggle}>
                                 <EditIcon aria-label="Edit" />
                             </IconButton>
                         </ListItemSecondaryAction>
